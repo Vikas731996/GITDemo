@@ -1,0 +1,21 @@
+create table emp(empid int , empname varchar2(10) , designation varchar2(10) , basicsal int , hra int , city varchar2(10));
+
+insert into emp values (110, 'Nihit', 'QA' , 40000 , 10000 , 'Pune'); 
+
+insert into emp values (102, 'Amrita', 'QA' , 45000 , 15000, 'Mumbai');
+
+insert into emp values (103, 'Aniket', 'SrQA' , 55000 , 25000, 'Pune');
+
+insert into emp values (104, 'Ankita', 'SrQA' , 50000 , 20000, 'Mumbai');
+
+insert into emp values (105, 'Atul', 'QALead' , 60000 , 35000, 'Mumbai');
+
+insert into emp values (106, 'Chetan', 'QAMgr' , 65000 , 45000, 'Mumbai');
+
+insert into emp values (107, 'Deepesh', 'QA' , 40000 , 10000 , 'Pune');
+
+insert into emp values (108, 'Dheeraj', 'QA' , 40000 , 10000 , 'Pune');
+
+insert into emp values (109, 'Manmath', 'QA' , 40000 , 10000 , 'Pune');
+
+insert into emp values (110, 'Vishvajit', 'QALead' , 40000 , 10000 , 'Pune');

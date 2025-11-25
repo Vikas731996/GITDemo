@@ -1,0 +1,73 @@
+package APIReference;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import static io.restassured.RestAssured.given;
+
+import org.testng.Assert;
+
+public class Rest_Post_API {
+
+	public static void main(String[] args) {
+
+		// Step 1 : Collect all needed information and save it into local variables
+
+		String req_body = "{\r\n" + "    \"name\": \"morpheus\",\r\n" + "    \"job\": \"leader\"\r\n" + "}";
+
+		String hostname = "https://reqres.in/";
+
+		String resource = "/api/users";
+
+		String headername = "Content-Type";
+
+		String headervalue = "application/json";
+		
+		// Step 2 : Declare BaseURI 
+		
+		RestAssured.baseURI=hostname;
+		
+		// Step 3 : Configure the API for execution and log entire transaction (request header , request body , response header , response body , time etc)
+		/*given().header(headername, headervalue).body(req_body).log().all().post(resource).then().log().all().extract().
+		response();*/
+		
+		// Step 4 : Configure the API for execution and save the response in a String variable
+		
+		String res_body=given().header(headername, headervalue).body(req_body).when().post(resource).then().extract().
+		response().asString();
+		
+		System.out.println(res_body);
+		
+		// Step 5 : Parse the response body
+		
+		// Step 5.1 : Create the object of JsonPath
+		
+		JsonPath jsp_res = new JsonPath(res_body);
+		
+		// Step 5.2 : Parse individual params using jsp_res object 
+		
+		String res_name=jsp_res.getString("name");
+		System.out.println(res_name);
+		String res_job=jsp_res.getString("job");
+		System.out.println(res_job);
+		String res_id=jsp_res.getString("id");
+		System.out.println(res_id);
+		String res_createdAt=jsp_res.getString("createdAt");
+		System.out.println(res_createdAt);
+		
+		// Step 6 : Validate the response body
+		
+		// Step 6.1 : Parse request body and save into local variables
+		
+		JsonPath jsp_req = new JsonPath(req_body);
+		String req_name = jsp_req.getString("name");
+		String req_job = jsp_req.getString("job");
+		
+		// Step 6.2 : Use TestNG's Assert
+		
+		Assert.assertEquals(res_name, req_name);
+		Assert.assertEquals(res_job, req_job);
+		Assert.assertNotNull(res_id);
+		
+	}
+
+}
