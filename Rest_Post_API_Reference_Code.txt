@@ -68,6 +68,10 @@ public class Rest_Post_API {
 		Assert.assertEquals(res_job, req_job);
 		Assert.assertNotNull(res_id);
 		
+		Assert.assertEquals(res_name, req_name);
+		Assert.assertEquals(res_job, req_job);
+		Assert.assertNotNull(res_id);
+		
 	}
 
 }
