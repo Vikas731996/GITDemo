@@ -18,4 +18,7 @@ insert into emp values (108, 'Dheeraj', 'QA' , 40000 , 10000 , 'Pune');
 
 insert into emp values (109, 'Manmath', 'QA' , 40000 , 10000 , 'Pune');
 
+
+insert into emp values (110, 'Vishvajit', 'QALead' , 40000 , 10000 , 'Pune');
+insert into emp values (110, 'Vishvajit', 'QALead' , 40000 , 10000 , 'Pune');
 insert into emp values (110, 'Vishvajit', 'QALead' , 40000 , 10000 , 'Pune');
